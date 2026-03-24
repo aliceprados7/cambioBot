@@ -19,7 +19,6 @@ class ActionConverterMoeda(Action):
             dispatcher.utter_message(text="Informe valor e moedas para converter.")
             return []
 
-        # 🔄 Normalização básica
         mapa = {
             "real": "BRL",
             "reais": "BRL",
@@ -34,7 +33,6 @@ class ActionConverterMoeda(Action):
         origem = mapa.get(origem.lower(), origem.upper())
         destino = mapa.get(destino.lower(), destino.upper())
 
-        # 🌐 Chamada da API
         url = f"https://v6.exchangerate-api.com/v6/a07ff9c823cc8e6af7bc0568/latest/USD"
         response = requests.get(url).json()
 
